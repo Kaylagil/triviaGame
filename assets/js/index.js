@@ -57,19 +57,30 @@ var correct = 0;
 var incorrect = 0;
 
 function displayQuestions(arr){
+
     for(var i = 0; i < arr.length; i ++ ){
         $('#questions').append('<div class="question">' + arr[i].question + '</div>')
-        $('#questions').append('<div data-value="a" data-number='+ i +' class="option">' + arr[i].options.a + '</div>')
-        $('#questions').append('<div data-value="b" data-number='+ i +'  class="option">' + arr[i].options.b + '</div>')
-        $('#questions').append('<div data-value="c"  data-number='+ i +' class="option">' + arr[i].options.c + '</div>')
-        $('#questions').append('<div data-value="d"  data-number='+ i +' class="option">' + arr[i].options.d + '</div>')
+        $('#questions').append('<div data-value="a" data-number='+ i +' class="option text-center">' + arr[i].options.a + '</div>')
+        $('#questions').append('<div data-value="b" data-number='+ i +'  class="option text-center">' + arr[i].options.b + '</div>')
+        $('#questions').append('<div data-value="c"  data-number='+ i +' class="option text-center">' + arr[i].options.c + '</div>')
+        $('#questions').append('<div data-value="d"  data-number='+ i +' class="option text-center">' + arr[i].options.d + '</div>')
     }
 
     $('.option').on('click', function(){
-       var value = $(this).attr('data-value')
-       var number = $(this).attr('data-number')
-       results[number] = value
-       console.log( results)
+        
+        console.log(results[number] === parseInt($(this).data('value')))
+
+        if (results[number] === $(this).data('value')) {
+
+        }
+
+
+       var value = $(this).attr('data-value');
+       var number = $(this).attr('data-number');
+    //    $(this).addClass('selected');
+   
+       results[number] = value;
+       console.log( results);
     })
 }
 
